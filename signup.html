@@ -24,17 +24,17 @@
 
   <body class="text-center">
     
-<main class="form-signin w-100 m-auto">
+<main action="/" class="form-signin w-100 m-auto" method="POST">
   <form>
     <img class="mb-4" src="images/creative-lightbox.png" alt="logo" width="72" height="72"> 
     <h1 class="h3 mb-3 fw-normal">Sign up to my Newsletter</h1>
 
     
-        <input type="TEXT" class="form-control top" placeholder="First Name" required autofocus>
+        <input type="text" name="fName" class="form-control top" placeholder="First Name" required autofocus>
         
-        <input type="TEXT" class="form-control middle" placeholder="Last Name" required>
+        <input type="text" name="lName" class="form-control middle" placeholder="Last Name" required>
   
-        <input type="email" class="form-control bottom" placeholder="Email" required>
+        <input type="email" name="email" class="form-control bottom" placeholder="Email" required>
      
 
     <div class="checkbox mb-3">
