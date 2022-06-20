@@ -3,7 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
-
+const https = require("https");
 const app = express();
 
 app.use(express.static("public"));
@@ -33,9 +33,26 @@ const data = {
 
   const jsonData = JSON.stringify(data);
 
+  const url = "https://us11.api.mailchimp.com/3.0/lists/" + listId; 
+
+  const options = {
+    method: "POST",
+    auth: "sofia:" + apiKey,
+  };
+
+  const request = https.request(url, options, function (response) {
+  
+    response.on("data", function (data) {
+      console.log(JSON.parse(data));
+    });
+  });
+
+  request.write(jsonData);
+  request.end();
+});
+
+app.listen(3000, function() {
+  console.log("Server is running on port 3000");
 });
 
 
-app.listen(3000, function()  {
-    console.log("Server is running on port 3000");
-});
